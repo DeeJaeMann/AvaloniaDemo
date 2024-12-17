@@ -24,13 +24,13 @@
                        Text="Temperature Converter">
             </TextBlock>
         </Border>
-        <Grid ShowGridLines="True" Margin="5"
+        <Grid ShowGridLines="False" Margin="5"
               ColumnDefinitions="120, 100"
               RowDefinitions="Auto, Auto, Auto">
             <Label Grid.Row="0" Grid.Column="0" Margin="10">Celsius</Label>
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="0 5" Text="0" />
-            <Label Grid.Row="1" Grid.Column="0" Margin="10">Fahrenheit</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0" />
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="0 5"  Name="celsius" Text="0" />
+            <Label Grid.Row="1" Grid.Column="0" Margin="10" >Fahrenheit</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5" Name="fahrenheit" IsReadOnly="True" Text="0"/>
             <Button Grid.Row="2" Grid.Column="1" Margin="0 5" Click="ButtonClicked">Calculate</Button>
         </Grid>
     </StackPanel>
