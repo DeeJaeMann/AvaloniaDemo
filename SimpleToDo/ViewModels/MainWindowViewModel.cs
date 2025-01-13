@@ -23,7 +23,6 @@ public partial class MainWindowViewModel : ViewModelBase
     /// <summary>
     /// Returns if a new Item can be added. We require to have the NewItem some Text
     /// </summary>
-    /// <returns></returns>
     private bool CanAddItem() => !string.IsNullOrWhiteSpace(NewItemContent);
 
     /// <summary>

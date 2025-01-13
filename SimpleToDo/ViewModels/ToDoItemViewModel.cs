@@ -8,6 +8,24 @@ namespace SimpleToDo.ViewModels;
 public partial class ToDoItemViewModel : ViewModelBase
 {
     /// <summary>
+    /// Creates a new blank ToDoItemViewModel
+    /// </summary>
+    public ToDoItemViewModel()
+    {
+    }
+    
+    /// <summary>
+    /// Creates a new ToDoItemViewModel for the given <see cref="Models.ToDoItem"/>
+    /// </summary>
+    /// <param name="item"></param>
+    public ToDoItemViewModel(ToDoItem item)
+    {
+        // Init the properties with the given values
+        IsChecked = item.IsChecked;
+        Content = item.Content;
+    }
+    
+    /// <summary>
     /// Gets or sets the checked status of each item
     /// </summary>
     [ObservableProperty]
@@ -19,23 +37,6 @@ public partial class ToDoItemViewModel : ViewModelBase
     [ObservableProperty]
     private string? _content;
 
-    /// <summary>
-    /// Creates a new blank ToDoItemViewModel
-    /// </summary>
-    public ToDoItemViewModel()
-    {
-    }
-
-    /// <summary>
-    /// Creates a new ToDoItemViewModel for the given <see cref="Models.ToDoItem"/>
-    /// </summary>
-    /// <param name="item"></param>
-    public ToDoItemViewModel(ToDoItem item)
-    {
-        // Init the properties with the given values
-        IsChecked = item.IsChecked;
-        Content = item.Content;
-    }
 
     /// <summary>
     /// Gets a ToDoItem of this ViewModel
