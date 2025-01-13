@@ -15,12 +15,28 @@
               x:Name="Root">
             
             <!-- This is our title text block -->
-            <TextBlock Text="My ToDo-List" />
+            <TextBlock Classes="h1" Text="My ToDo-List" />
             
             <ScrollViewer Grid.Row="1">
                 <!-- This ItemsControl show all added ToDoItems. -->
                 <!-- It needs to be placed inside a ScrollViewer because other than a ListBox it does not have it's own -->
                 <ItemsControl ItemsSource="{Binding ToDoItems}">
+                    <ItemsControl.ItemTemplate>
+                        <!-- The ItemTemplate defines how each item should be represented -->
+                        <!-- Our Item will be represented by a CheckBox and Delete-Button -->
+                        <DataTemplate DataType="vm:ToDoItemViewModel">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <CheckBox Content="{Binding Content}"
+                                          IsChecked="{Binding IsChecked}" />
+                                <!-- Note how we use the Root-Grid to get the MainWindowViewModel here. As we use compiled bindings we have to cast the DataContext -->
+                                <Button Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Grid.Column="1">
+                                    Delete
+                                    </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
             

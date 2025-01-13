@@ -11,5 +11,26 @@
   
     <Application.Styles>
         <FluentTheme />
+        <!-- Custom Styles -->
+        <!-- Header Style -->
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <!-- CheckBox Style -->
+        <Style Selector="CheckBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        
+        <Style Selector="CheckBox:pointerover /template/ Grid#RootGrid">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColorLight2}" />
+        </Style>
     </Application.Styles>
+    <!-- For re-usable Icon data         
+    <Application.Resources>
+        <StreamGeometry x:Key="DeleteIconData">The path data</StreamGeometry>
+        <StreamGeometry x:Key="AcceptIconData">The path data</StreamGeometry>
+    </Application.Resources>
+    -->
 </Application>
